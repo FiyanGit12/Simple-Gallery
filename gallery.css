@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+  
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    align-items: center;
+    background-color: black;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+    letter-spacing: 2px;
+    background-color: rgb(7, 13, 37);
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 800px;
+    border: 5px solid rgb(7, 13, 37);
+    box-sizing: border-box;
+    margin:0 auto;
+    width: 100%;
+}
+
+.photo {
+    flex: 1 1 calc(33.333% - 16px);
+    box-sizing: border-box;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.photo img {
+    width: 100%;
+    display: block;
+    border-radius: 15px;
+}
+
+.photo:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.photo p {
+    border-radius: 5px;
+    position: absolute;
+    font-size: 15px;
+    background-color: rgb(46, 40, 40);
+    bottom: -3px;
+    left: 10px;
+    padding: 5px;
+}
+
+.informatika  {
+ width: 790px;
+ padding-top: 20px;
+ padding-bottom: 20px;
+ margin: 0 auto;
+}
+
+.text-informatika {
+    margin-bottom: 35px;
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 100px;
+}
+
+.contact button {
+    width: 130px;
+    height: 50px;
+    border-radius: 30px;
+    font-size: 20px;
+    font-family: "Roboto", serif;
+    border: none;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    background: transparent;
+    padding: 0;
+    margin-left: 325px;
+    margin-top: 50px;
+}
+
+/* Styling untuk elemen tombol */
+.btn {
+    position: relative;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+/* Styling ikon di dalam tombol */
+.btn i {
+    display: block;
+    position: relative;
+    z-index: 1;
+    margin-top: 7px;
+    font-size: 30px;
+    color: white; 
+    mix-blend-mode: difference;
+}
+
+.btn .btn-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(49, 19, 52);
+    border-radius: 50px;
+    transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1), opacity 0.3s ease-in-out;
+    z-index: 0;
+    color: white;
+}
+
+
+.btn:hover .btn-bg {
+    transform: scale3d(1.2, 1.2, 1);
+}
+
+/* Animasi */
+.btn .btn-bg::before,
+.btn .btn-bg::after {
+    content: '';
+    position: absolute;
+    background: white;
+}
+
+.btn .btn-bg::before {
+    width: 110%;
+    height: 0;
+    padding-bottom: 110%;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
+}
+
+/* Animasi */
+.btn:hover .btn-bg::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.btn .btn-bg::after {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+.btn:hover .btn-bg::after {
+    opacity: 1;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .photo {
+      flex: 1 1 calc(50% - 16px); /* Mengatur agar ada 2 gambar per baris */
+    }
+    .gallery {
+        gap: 25px;
+        padding: 3%;
+    }
+    .container h1 {
+        margin-bottom: 20px
+    }
+    .informatika {
+        width: 670px;
+    }
+    .contact button {
+        margin-left: 270px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .photo {
+      flex: 1 1 100%;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .informatika {
+        width: 390px;
+    }
+    .photo p {
+        left: 20px;
+    }
+    .contact button {
+        margin-left: 130px;
+    }
+  }
