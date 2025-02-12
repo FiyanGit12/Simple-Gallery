@@ -1,19 +1,23 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   font-family: "Open Sans", sans-serif;
-  align-items: center;
   background-color: black;
   height: 100vh;
+  overflow-x: hidden; /* Menyembunyikan scroll horizontal */
 }
 
 .container {
   text-align: center;
   color: white;
-  text-decoration: none;
   font-size: 30px;
   letter-spacing: 2px;
   background-color: rgb(7, 13, 37);
+  width: 100%; /* Pastikan kontainer tidak melampaui layar */
 }
 
 .gallery {
@@ -22,14 +26,12 @@ body {
   gap: 20px;
   max-width: 800px;
   border: 5px solid rgb(7, 13, 37);
-  box-sizing: border-box;
   margin: 0 auto;
   width: 100%;
 }
 
 .photo {
-  flex: 1 1 calc(33.333% - 16px);
-  box-sizing: border-box;
+  flex: 1 1 calc(33.333% - 16px); 
   position: relative;
   transition: transform 0.3s ease;
 }
@@ -46,13 +48,13 @@ body {
 }
 
 .photo p {
-  border-radius: 5px;
   position: absolute;
   font-size: 15px;
   background-color: rgb(46, 40, 40);
-  bottom: -3px;
+  bottom: 10px;
   left: 10px;
   padding: 5px;
+  border-radius: 5px;
 }
 
 .informatika {
@@ -60,10 +62,6 @@ body {
   padding-top: 20px;
   padding-bottom: 20px;
   margin: 0 auto;
-}
-
-.text-informatika {
-  margin-bottom: 35px;
 }
 
 .contact {
@@ -80,23 +78,19 @@ body {
   font-size: 20px;
   font-family: "Roboto", serif;
   border: none;
-  overflow: hidden;
   position: relative;
   cursor: pointer;
   background: transparent;
   padding: 0;
-  margin-left: 325px;
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
-/* Styling untuk elemen tombol */
 .btn {
   position: relative;
   display: inline-block;
   transition: transform 0.3s ease;
 }
 
-/* Styling ikon di dalam tombol */
 .btn i {
   display: block;
   position: relative;
@@ -115,130 +109,65 @@ body {
   height: 100%;
   background: rgb(49, 19, 52);
   border-radius: 50px;
-  transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1),
-    opacity 0.3s ease-in-out;
+  transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1), opacity 0.3s ease-in-out;
   z-index: 0;
-  color: white;
-}
-
-.btn {
-   margin: 30px 300px auto;
-   
 }
 
 .btn:hover .btn-bg {
   transform: scale3d(1.2, 1.2, 1);
 }
 
-/* Animasi */
-.btn .btn-bg::before,
-.btn .btn-bg::after {
-  content: "";
-  position: absolute;
-  background: white;
-}
-
-.btn .btn-bg::before {
-  width: 110%;
-  height: 0;
-  padding-bottom: 110%;
-  top: 50%;
-  left: 50%;
-  border-radius: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
-}
-
-/* Animasi */
-.btn:hover .btn-bg::before {
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.btn .btn-bg::after {
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: opacity 0.3s ease 0.3s;
-}
-
-.btn:hover {
-  transform: scale(1.1);
-}
-
-.btn:hover .btn-bg::after {
-  opacity: 1;
-}
-
-/* Responsive */
 @media (max-width: 767px) {
-  /* custom sendiri bagian body */
-  body {
-    margin: auto;
-  }
-  /* jangan diubah ubah  */
   .photo {
-    margin: auto;
-    max-width: 100%;
-    justify-content: center;
-    align-items: center;
-    flex: 1 1 calc(50% - 16px); /* Mengatur agar ada 2 gambar per baris */
+    flex: 1 1 calc(50% - 16px); /* 2 kolom pada perangkat lebih kecil */
   }
+
   .gallery {
-    margin: auto;
-    max-width: 95%;
-    gap: 25px;
+    margin: 0 auto;
+    max-width: 100%;
     padding: 3%;
   }
-  .container h1 {
-    margin-bottom: 20px;
-  }
-  .informatika {
-    max-height: auto;
-    width: 670px;
-  }
-  .contact button {
-    margin-left: 270px;
-  }
-  .btn {
-    margin-left: 100px;
-    margin-top: -40px;
-  }
 }
-/* jangan diubah */
+
 @media (max-width: 1024px) {
   .photo {
-    margin: auto;
-    max-width: 120%;
-    justify-content: center;
-    align-items: center;
-    flex: 1 1 calc(50% - 16px); /* Mengatur agar ada 2 gambar per baris */
+    flex: 1 1 calc(50% - 16px); /* 2 kolom pada perangkat lebih kecil */
   }
 
   .gallery {
-    margin: auto;
+    margin: 0 auto;
     max-width: 100%;
     gap: 25px;
     padding: 3%;
   }
-}
+  .gallery {
+    margin-top: 30px;
+  }
 
-@media (max-width: 480px) {
+@media (max-width: 450px) {
   .photo {
     max-width: 100%;
     flex: 1 1 100%;
-    padding-left: 10px;
-    padding-right: 10px;
   }
+
   .informatika {
-    margin: auto 10px;
-    width: 390px;
+    width: 100%; /* Menyesuaikan dengan layar kecil */
   }
-  .photo p {
-    left: 20px;
+
+  .informatika p {
+    bottom: 20px;
   }
+
   .contact button {
-    margin-left: 130px;
+    margin-left: 5px; /* Menyesuaikan posisi tombol */
+  }
+
+  .photo p {
+    margin-bottom: 10px;
+  }
+
+  .container h1 {
+    padding-top: 30px;
+    padding-bottom: 10px;
   }
 }
